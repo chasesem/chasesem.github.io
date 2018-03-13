@@ -1,7 +1,5 @@
 
 
-  
-
 
 
 
@@ -18,9 +16,11 @@
   
   
   
-    <meta name="description" content="">
+    <meta name="description" content="刚毕业进入OOCL，ITA Bootcamp trainning的时候，小白老师把SpringMVC和Spring的原理重新梳理了一遍。今天就先来重温一下Spring 和Spring MVC吧。
+#SpringSpring 最主要分为两个方面，一个是IOC(Inversion of control)，另一个是AOP(Aspect-Oriented Programming)。
+##IOCIOC...">
   
-  <title>归档 [ Yam's Blog ]</title>
+  <title>Spring , SpringMVC 复习 [ Yam's Blog ]</title>
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -39,6 +39,15 @@
 <body>
 <div class="side-navigate hide-area">
   
+  
+    <div class="item next">
+      <a href="/2018/03/08/Spring-Boot-2-0/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Spring Boot 2.0
+      </div>
+    </div>
   
 </div>
 <div id="outer-container" class="hide-area">
@@ -64,7 +73,7 @@
           </li>
         
           
-            <li class="active">
+            <li>
           
             <a href="/archives">Archives</a>
             
@@ -110,122 +119,55 @@
     <div id="content-inner">
       
       
-  <article>
-    
-
-  <div id="recent-posts">
-    <h1>归档
-    
-      <span class="posts-count">
-      共
-      3
+  <article id="post">
+    <h1>Spring , SpringMVC 复习</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2018-03-08</span>
       
-        文章
-      
-      </span>
-    
-    </h1>
-    
-    
-      
-      
-        
-      
-      
-    
+        <span id = "post-title-updated">修改于 2018-03-13</span>
       
       
       
+    </p>
     
-      
-      
-      
-    
-    
-    
-      
-      
-        
-        <h3 class="archive-year-title">2018
-        
-          <span class="posts-count">
-          共
-          3
-          
-            文章
-          
-          </span>
-        
-        </h3>
-      
-      <div class="post-title-item">
-  
-  <a href="/2018/03/08/Spring-SpringMVC-复习/">
-  
-    Spring , SpringMVC 复习
-  
-  </a>
-  <p class="page-title-sub">
-    <span id = "post-title-date">3-8</span>
-    
-    
-    
-      <br>
-      
-      
-    
-  </p>
-  
-</div>
-    
-      
-      
-      <div class="post-title-item">
-  
-  <a href="/2018/03/08/Spring-Boot-2-0/">
-  
-    Spring Boot 2.0
-  
-  </a>
-  <p class="page-title-sub">
-    <span id = "post-title-date">3-8</span>
-    
-    
-    
-      <br>
-      
-      
-    
-  </p>
-  
-</div>
-    
-      
-      
-      <div class="post-title-item">
-  
-  <a href="/2018/03/07/hello-world/">
-  
-    Hello World
-  
-  </a>
-  <p class="page-title-sub">
-    <span id = "post-title-date">3-7</span>
-    
-    
-    
-      <br>
-      
-      
-    
-  </p>
-  
-</div>
-    
-  </div>
-
+    <p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1520524179086&amp;di=8959a8d4bb8096a234853930fc19791c&amp;imgtype=0&amp;src=http%3A%2F%2Fstatic.icoolxue.com%2Fcover_spring.jpg" alt="Spring"></p>
+<p>刚毕业进入OOCL，ITA Bootcamp trainning的时候，小白老师把SpringMVC和Spring的原理重新梳理了一遍。<br>今天就先来重温一下Spring 和Spring MVC吧。</p>
+<p>#Spring<br>Spring 最主要分为两个方面，一个是IOC(Inversion of control)，另一个是AOP(Aspect-Oriented Programming)。</p>
+<p>##IOC<br>IOC，控制反转。顾名思义，就是对象的产生交给容器来控制，而不是由开发者来控制。让一个对象的创建不需要用new就可以自动创建，这里是利用了Java的反射机制，在运行时动态创建，调用对象。</p>
+<p>##AOP<br>AOP，面向切面编程。顾名思义，就是将一个段程序切开，取其中的一个切面来进行编程。比如说用户输入密码后需要加密然后存进数据库，但是加密这个过程并不属于业务部分的代码，不需要写在service层。所以在拿到密码以后，到存进DB之间，可以在这个切面对密码进行加密。</p>
+<p>#Spring MVC<br><img src="http://ww4.sinaimg.cn/mw690/6941baebtw1epg9al8bv6j20f90aqjrx.jpg" alt="Spring MVC"><br>如图</p>
+<p>#Dispatcher Servlet(Spring控制器)</p>
+<p>在最简单的Spring MVC应用程序中，控制器是唯一的你需要在Java web部署描述文件（即web.xml文件）中配置的Servlet。Spring MVC控制器 ——通常称作Dispatcher Servlet，实现了前端控制器设计模式。并且每个web请求必须通过它以便它能够管理整个请求的生命周期。</p>
+<p>当一个web请求发送到Spring MVC应用程序，dispatcher servlet首先接收请求。然后它组织那些在Spring web应用程序上下文配置的（例如实际请求处理控制器和视图解析器）或者使用注解配置的组件，所有的这些都需要处理该请求。</p>
+<p>在Spring3.0中定义一个控制器类，这个类必须标有@Controller注解。当有@Controller注解的控制器收到一个请求时，它会寻找一个合适的handler方法去处理这个请求。这就需要控制器通过一个或多个handler映射去把每个请求映射到handler方法。为了这样做，一个控制器类的方法需要被@RequestMapping注解装饰，使它们成为handler方法。</p>
+<p>handler方法处理完请求后，它把控制权委托给视图名与handler方法返回值相同的视图。为了提供一个灵活的方法，一个handler方法的返回值并不代表一个视图的实现而是一个逻辑视图，即没有任何文件扩展名。你可以将这些逻辑视图映射到正确的实现，并将这些实现写入到上下文文件，这样你就可以轻松的更改视图层代码甚至不用修改请求handler类的代码。<br>为一个逻辑名称匹配正确的文件是视图解析器的责任。一旦控制器类已将一个视图名称解析到一个视图实现。它会根据视图实现的设计来渲染对应对象。</p>
+<p><a href="https://github.com/chasesem/My-SpringMVC" target="_blank" rel="noopener">https://github.com/chasesem/My-SpringMVC</a> 这是自己实现的一个简单的spring mvc 框架</p>
 
   </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2018/03/08/Spring-Boot-2-0/" class="next">下一篇 Spring Boot 2.0 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
 
       
       
@@ -327,6 +269,8 @@ var unsplashConfig = {"gravity":"north"};
 var turnoffBackgroundImage = false;
 
 
+
+  turnoffBackgroundImage = true;
 
 
 var backgroundColor = "34495E";
